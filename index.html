@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>teka-teki cinta</title>
+    </head>
+    <body>
+        <h1>teka-teki cinta</h1>
+        <p id="question"></p>
+        <input type="text" id="answer" placeholder="jawapan" />
+        <button id="periksa" type="submit">periksa</button>
+        <p id="result"></p>
+
+        <script>
+            const question = document.getElementById("question");
+            const result = document.getElementById("result");
+            const periksa = document.getElementById("periksa");
+            let i = 0;
+            const questions = [
+                {
+                    question: "siapa crushku?",
+                    answer: "nisrin",
+                },
+                {
+                    question: "siapa kawan baik ku?",
+                    answer: "nisrin lah",
+                },
+            ];
+            question.textContent = questions[i].question;
+            periksa.addEventListener("click", () => {
+                const answer = document.getElementById("answer").value;
+                console.log(answer);
+                if (answer === questions[i].answer) {
+                    result.textContent = "Betul!";
+                    i++;
+                    if (i < questions.length) {
+                        question.textContent = questions[i].question;
+                    } else {
+                        question.textContent = "Selesai";
+                    }
+                } else {
+                    result.textContent = "Salah try lagi!";
+                }
+            });
+        </script>
+    </body>
+</html>
